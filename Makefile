@@ -1,5 +1,5 @@
 VENV_BIN = python3 -m venv
-
+MODULE_DIR = telemc
 VENV_DIR ?= .venv
 
 VENV_ACTIVATE = . $(VENV_DIR)/bin/activate
@@ -21,7 +21,7 @@ clean:
 	find -iname "*.pyc" -delete
 	rm -rf __pycache__
 	find tests -type d -name "__pycache__" -delete
-	find symmetry -type d -name "__pycache__" -delete
+	find $(MODULE_DIR) -type d -name "__pycache__" -delete
 
 clean-venv:
 	rm -rf $(VENV_DIR)
@@ -37,7 +37,7 @@ test: venv
 	$(VENV_ACTIVATE); python setup.py test
 
 pytest: venv
-	$(VENV_ACTIVATE); pytest --cov symmetry/
+	$(VENV_ACTIVATE); pytest --cov $(MODULE_DIR)/
 
 dist: venv
 	$(VENV_ACTIVATE); python setup.py sdist bdist_wheel

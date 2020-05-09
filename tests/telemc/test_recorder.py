@@ -4,7 +4,7 @@ import time
 import unittest
 from queue import Queue
 
-from symmetry.telemc.recorder import TelemetryRecorder, TelemetryFileRecorder
+from telemc.recorder import TelemetryRecorder, TelemetryFileRecorder
 from tests.testutil import RedisResource
 
 
