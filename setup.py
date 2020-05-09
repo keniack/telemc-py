@@ -13,7 +13,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="symmetry-py-telemc",
-    version="0.1.0.dev3",
+    version="0.1.0",
     author="Thomas Rausch",
     author_email="t.rausch@dsg.tuwien.ac.at",
     description="A Symmetry Telemetry Client Library",
