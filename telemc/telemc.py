@@ -1,4 +1,4 @@
-from typing import Iterator, NamedTuple
+from typing import Iterator, NamedTuple, List, Dict
 
 
 class Telemetry(NamedTuple):
@@ -7,6 +7,22 @@ class Telemetry(NamedTuple):
     node: str
     metric: str
     subsystem: str = None
+
+
+class NodeInfo(NamedTuple):
+    """
+    Represents the data held in the telemd info keys. The data is documented in https://github.com/edgerun/go-telemd
+
+    * arch      the processor architecture (arm32, amd64, ...)
+    * cpus      number of processors
+    * ram       maximal available RAM in kilobytes
+    * boot      UNIX timestamp of when the node was last booted
+    * disk      The disk devices available for monitoring
+    * net       The network devices available for monitoring
+    * hostname  The real hostname
+    """
+    node: str
+    data: Dict[str, str]
 
 
 class TelemetrySubscriber:
