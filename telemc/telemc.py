@@ -1,4 +1,4 @@
-from typing import Iterator, NamedTuple, List, Dict
+from typing import Iterator, NamedTuple, Dict
 
 
 class Telemetry(NamedTuple):
@@ -55,3 +55,9 @@ class TelemetrySubscriber:
     def close(self):
         if self.pubsub:
             self.pubsub.punsubscribe()
+
+    def __enter__(self):
+        return self.run()
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.close()

@@ -1,3 +1,5 @@
+from typing import List, Optional
+
 from telemc.telemc import NodeInfo
 
 
@@ -10,7 +12,7 @@ class TelemetryController:
         super().__init__()
         self.rds = rds
 
-    def get_nodes(self):
+    def get_nodes(self) -> List[str]:
         """
         Returns the hosts listening on their respective telemcmd/<hostname> topics.
 
@@ -18,7 +20,11 @@ class TelemetryController:
         """
         return [ch.split('/', maxsplit=1)[1] for ch in self._channels()]
 
-    def get_node_infos(self):
+    def get_node_info(self, node: str) -> Optional[NodeInfo]:
+        d = self.rds.hgetall(f'telemd.info:{node}')
+        return NodeInfo(node, d) if d else None
+
+    def get_node_infos(self) -> List[NodeInfo]:
         infos = list()
         for node in self.get_nodes():
             d = self.rds.hgetall(f'telemd.info:{node}')
