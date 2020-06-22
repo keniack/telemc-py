@@ -44,13 +44,21 @@ import telemc
 
 rds = redis.Redis(decode_responses=True)
 
-with telemc.TelemetryRecorder(rds) as sub:
+with telemc.TelemetrySubscriber(rds) as sub:
     for telem in sub:
         print(telem.timestamp, telem.node, ...)
 ```
 
-### Pause all telemetry daemons
+Or use the higher-level `TelemetryRecorder`, which is a thread and can be extended to implement various recording
+tools.
 
+```python
+import telemc
+recorder = telemc.recorder.TelemetryPrinter(rds)
+recorder.start()
+``` 
+
+### Pause all telemetry daemons
 
 ```python
 ctrl = telemc.TelemetryController(rds)
