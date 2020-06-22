@@ -12,14 +12,14 @@ with open("requirements.txt", "r") as fh:
     install_requires = [line for line in fh.read().split(os.linesep) if line]
 
 setuptools.setup(
-    name="symmetry-py-telemc",
+    name="telemc",
     version="0.3.0.dev1",
     author="Thomas Rausch",
     author_email="t.rausch@dsg.tuwien.ac.at",
-    description="A Symmetry Telemetry Client Library",
+    description="Python library for accessing telemd monitoring data",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://git.dsg.tuwien.ac.at/mc2/py-telemc",
+    url="https://github.com/edgerun/telemc-py",
     packages=setuptools.find_packages(),
     setup_requires=['wheel'],
     test_suite="tests",
@@ -31,4 +31,3 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
 )
-
