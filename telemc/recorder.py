@@ -11,13 +11,15 @@ class TelemetryRecorder(threading.Thread, ABC):
         super().__init__(*args, **kwargs)
         self.rds = rds
         self._sub = None
-        self.thread = None
 
-    def stop(self):
+    def stop(self, timeout=None):
+        """
+        Equivalent to recorder.close() and recorder.join(timeout).
+
+        :param timeout: the join timeout
+        """
         self.close()
-
-        if self.thread:
-            self.thread.join()
+        self.join(timeout=timeout)
 
     def close(self):
         if self._sub:

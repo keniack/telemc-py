@@ -42,8 +42,7 @@ class TelemetryRecorderTest(unittest.TestCase):
         self.assertEqual('unittest', telemetry.node)
         self.assertEqual('42', telemetry.value)
 
-        recorder.stop()
-        recorder.join(timeout=2)
+        recorder.stop(timeout=2)
 
 
 class TelemetryFileRecorderTest(unittest.TestCase):
@@ -67,8 +66,7 @@ class TelemetryFileRecorderTest(unittest.TestCase):
         self.redis.rds.publish('telem/unittest/cpu', '1002 42')
         self.redis.rds.publish('telem/unittest/cpu', '1003 43')
 
-        recorder.stop()
-        recorder.join(timeout=2)
+        recorder.stop(timeout=2)
 
         with open(self.tmp) as fd:
             lines = fd.readlines()
