@@ -13,7 +13,7 @@ with open("requirements.txt", "r") as fh:
 
 setuptools.setup(
     name="telemc",
-    version="0.3.0.dev1",
+    version="0.3.0",
     author="Thomas Rausch",
     author_email="t.rausch@dsg.tuwien.ac.at",
     description="Python library for accessing telemd monitoring data",
