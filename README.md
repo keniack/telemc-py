@@ -1,5 +1,4 @@
-py-telemc
+telemc-py
 =========
 
-Symmetry telemetry client library in python.
-
+Library for accessing and recording [telemd](https://github.com/edgerun/telemd) monitoring data.
