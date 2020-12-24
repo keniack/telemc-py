@@ -3,8 +3,8 @@ import os
 
 import redis
 
-from telemc import TelemetryController
-from telemc.telemc import NodeInfo, TelemetrySubscriber
+from telemck import TelemetryController
+from telemck.telemc import NodeInfo, TelemetrySubscriber
 
 
 class CLI:

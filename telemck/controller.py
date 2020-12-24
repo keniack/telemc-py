@@ -1,6 +1,6 @@
 from typing import List, Optional
 
-from telemc.telemc import NodeInfo
+from telemck.telemc import NodeInfo
 
 
 class TelemetryController:

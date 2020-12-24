@@ -2,7 +2,7 @@ import os
 import threading
 from abc import ABC
 
-from telemc.telemc import TelemetrySubscriber, Telemetry
+from telemck.telemc import TelemetrySubscriber, Telemetry
 
 
 class TelemetryRecorder(threading.Thread, ABC):

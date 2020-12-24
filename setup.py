@@ -12,8 +12,8 @@ with open("requirements.txt", "r") as fh:
     install_requires = [line for line in fh.read().split(os.linesep) if line]
 
 setuptools.setup(
-    name="telemc-ck",
-    version="0.4.0",
+    name="telemck",
+    version="0.3.3",
     author="Cynthia Marcelino",
     author_email="keniack@gmail.com",
     description="Python library for accessing telemd monitoring data",
