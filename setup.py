@@ -12,14 +12,14 @@ with open("requirements.txt", "r") as fh:
     install_requires = [line for line in fh.read().split(os.linesep) if line]
 
 setuptools.setup(
-    name="telemc",
-    version="0.4.0.dev1",
-    author="Thomas Rausch",
-    author_email="t.rausch@dsg.tuwien.ac.at",
+    name="telemc-ck",
+    version="0.4.0",
+    author="Cynthia Marcelino",
+    author_email="keniack@gmail.com",
     description="Python library for accessing telemd monitoring data",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/edgerun/telemc-py",
+    url="https://github.com/keniack/telemc-py",
     packages=setuptools.find_packages(),
     setup_requires=['wheel'],
     test_suite="tests",
