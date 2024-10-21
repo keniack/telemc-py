@@ -64,3 +64,12 @@ recorder.start()
 ctrl = telemc.TelemetryController(rds)
 ctrl.pause_all()
 ```
+
+## Build the Docker image
+docker build -t keniack/telemc-py:latest .
+
+# Run the Docker container with host network and default Redis host and port
+docker run -it --net=host keniack:telemc-py:latest follow
+
+# Run the Docker container with custom Redis host and port
+docker run -it --net=host -e REDIS_HOST=192.168.1.100 -e REDIS_PORT=6379 keniack/telemc-py:latest follow
